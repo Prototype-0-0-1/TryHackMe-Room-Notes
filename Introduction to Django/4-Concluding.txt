@@ -1,0 +1,18 @@
+> In case if it was hard for you to follow the guide, or you have any errors, here's an exact example of the Django website I was talking about:
+
+https://github.com/Swafox/Django-example
+
+(If you still have any questions, feel free to reach me out on Discord. I'll be happy to help.)
+
+> It is also possible to deploy your Django example for free! https://www.pythonanywhere.com/ Has a full support for Django applications with intuitive GUI.
+
+> In case if you enjoyed Django and want to go further, I would recommend these free sources:
+
+https://tutorial.djangogirls.org/en/
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django
+https://docs.djangoproject.com/en/2.2/
+https://djangobook.com/mastering-django-2-book/
+
+- Flag from GitHub page
+--> The flag is on the homepage/README.md of the repo itself
+-- THM{g1t_djang0_hUb}

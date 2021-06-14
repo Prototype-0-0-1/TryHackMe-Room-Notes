@@ -1,0 +1,102 @@
+https://docs.djangoproject.com/ will guide through everything
+
+Now, let's go ahead and create a very simple app: 
+
+1. Create an app using a command from Unit 2 and call it whatever you like. I will be using 'Articles' for this lesson.
+2. Head over to settings.py and include your app name in *INSTALLED_APPS*:
+
+    INSTALLED APPS = [
+    'app' ,
+    # .. .
+    ]
+
+3. Head over to urls.py (located in the main folder!) and include a path to your app there:
+
+    # urls. py basic syntax
+    from django. contribu import admin
+    from django. urls import include, path
+    urlpatterns = [
+    path ( ' {app_name}/', include( ' {app_name} . urls' ) ),
+    path( ' admin/ ', admin. site. urls) ,
+    ]
+
+Note that {app_name} should be replaced with your app's name.
+
+4. Migrate your changes by running python3 manage.py migrate
+Your app is now located in the https://IP:8000/{app_name} 
+After successful app creation let's move over to the app directory and proceed there. As seen, Django automatically creates files inside your app folder. We are going to go through their purposes as we continue creating our website.
+For now, create a file urls.py which will be especially handy in the closest future.
+
+urls.py is responsible for accepting and redistributing incoming HTTP requests via views.py
+
+We create a variable called urlpatterns in which we state names of our directories. views.index calls index function from views.py to be executed therefore creating some output response for HTTP request.
+For example, if we are willing to create a directory called "archive", with function "main", we would include this in urls.py:
+path('archive/', views.main, name ='main')
+
+NOTE: Paths with blank directory ('') are going to call the function whenever the app is accessed at https://IP/{app_name}; any other directories are going to extend the link, for example, the archives directory I used above would be located inhttps://IP/articles/archive.
+
+views.py is responsible for carrying out functions which are called using urls.py
+Now let's create a simple HTTP response function for our app.
+The syntax is pretty easy for this one. All you have to do is create a function with a certain name which you will be referring to in urls.py 
+Here's an example of a function that returns "Hello, world!" message:
+
+    from django. http import HttpResponse
+
+    def index (request) :
+        return HttpResponse("Hello, World!")
+
+Note that in this case the function is called index, and so in order to make it work you need to put this line into your urls.py. path('', views.index, name='index'),
+
+    # urls. py inside the app folder
+    from django. urls import path
+    from . import views
+
+    app_name = 'articles'
+    urlpatterns = [
+    path( ' ', views. index, name=' index' ),
+    ]
+
+Now navigate to your http://IP:8000/{app_name} and see if "Hello, world!" popped out.
+By this point, we were able to create a really simple website example that returns a text message. We are also able to create different apps and expand them with directories and went through the web part of Django server. 
+Obviously, a simple HTTP Response isn't enough to properly display content. Django is able to automatically generate HTML markdown if properly told so. Templates are the ones who help us with that. 
+Without further ado let's create a folder named templates in your app's folder and place a file named base.html into it. Base.html is going to play a role of a simply configured HTML example which in the long run, allows us to omit work with HTML. 
+
+Content of base.html is pretty basic and stays the same most of the time:
+    # base. html
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+
+    <meta charset="UTF-8">
+    <title>{% block title *)My website{> endblock *}</title>
+    </head>
+    <body>
+
+    {% block content *} {% endblock *}
+    </body>
+    </html>
+
+Now, create some another blank HTML file (index.html) and include this code in it:
+
+    # list. html
+    {% extends ' base. html's}
+    {% block content %}
+
+    Hello, World!
+    {% endblock % }
+
+As seen here, it uses base.html as its basis and allows us to input any simple or slightly HTML-marked text in-between {% extends 'base.html'%} and {% endblock %}. Try changing Hello World to some other text and now we are ready to make it work!
+
+Remember what file is responsible for storing functions? views.py! 
+Head over there and change the index function to this code which will automatically render your template from index.html
+
+    # views . py
+    from django. shortcuts import render
+    def index(request) :
+
+        return render (request, ' index. html' )
+
+
+Now check your text at http://IP:8000/{app_name}
+You can create different templates for different functions and use them separately. For example, if you are creating a blog website, you might want to make templates for articles and homepage separately.
+> In case if it was hard for you to follow the guide, or you have any errors, head over to Unit 4 and find a github link there. I'll upload an exact example of what I was talking about here so you can compare it with your code and easily troubleshoot.

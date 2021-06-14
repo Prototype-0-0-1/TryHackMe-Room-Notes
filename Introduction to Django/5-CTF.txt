@@ -1,0 +1,170 @@
+Now it's time for a small CTF!
+
+It might take around ~3 minutes for the machine to boot properly.
+
+Fix the error and retrieve all the flags! (Use knowledge from previous units)
+
+	Username: django-admin
+	Password: roottoor1212
+
+--> Lab Info
+IP is given, Username & Password is given as well.
+ssh into the machine with these credentials.
+
+'''''
+django-admin@py:~/messagebox$ ls
+	db.sqlite3  lmessages  manage.py  messagebox
+'''''
+
+home directory has a directory called messagebox. It seems to be a django-app based upon the fact that it had manage.py file
+
+'''''
+django-admin@py:~/messagebox$ python3 manage.py runserver
+	Watching for file changes with StatReloader
+	Performing system checks...
+
+	System check identified no issues (0 silenced).
+	June 14, 2021 - 12:32:09
+	Django version 2.2.12, using settings 'messagebox.settings'
+	Starting development server at http://127.0.0.1:8000/
+	Quit the server with CONTROL-C.
+	Error: That port is already in use.
+'''''
+
+''''' In messages/settings.py
+SECRET_KEY = 'nj_pg06)@h%vm178qh^v&^2*+6m(-82b6dsmn8!(uz5)+&2&-w'
+'''''
+
+Since it didn't work as is, changed to 8080 (Instead of 8000) and since it is in debug mode = TRUE (After checking settings.py), we can see what to Fix
+''''' 
+django-admin@py:~/messagebox$ python3 manage.py runserver 0.0.0.0:8080
+
+On website:
+	DisallowedHost at /
+	Invalid HTTP_HOST header: '10.10.36.170:8080'. You may need to add '10.10.36.170' to ALLOWED_HOSTS.
+(Here 10.10.36.170 is the IP assigned to my current instance. Would be different for everyone)
+'''''
+
+Thus, added '10.10.36.170' in settings.py in the ALLOWED_HOSTS part.
+Now, running python3 manage.py runserver 0.0.0.0:8080 again
+''''' We have some output
+
+Message box v1.1
+
+Hi! Welcome back to your inbox. Seems like you got a new message!
+
+Check it out here:
+
+Messages (http://10.10.36.170:8080/messages)
+'''''
+
+Upon going to the /messages We get a really long message. There is a button that says Decode This? and then we get an alert called: Sorry, something went wrong :(
+Based upon the existing knowledge, we know that /admin page would exist.
+We put django-admin and roottoor1212 as ID-Password, but it doesn't seem to work. So, we create a superuser of our own so that we can use the login.
+
+So, we use 
+python3 manage.py createsuperuser
+and use the credentials as username-password as admin - admin for ease of use (NOT RECOMMENDED IN A REAL WORLD SCENARIO)
+
+Now, we go back to the /admin page
+and login with superuser credentials (admin & admin in our case)
+
+Upon going to clicking Change in the User column,
+We are presented with the flag (Admin Flag)
+
+Now, there is another user called StrangeFox. And there is a pastebin link.
+That pastebin link has the hash of the password. 
+Going onto: https://crackstation.net/ to paste the hash, and we get the password cracked.
+
+Now, we go back to the machine and switch to this newly found user: StrangeFox with the cracked password.
+
+We use: su StrangeFox
+then, we use the cracked password to login
+
+'''''
+StrangeFox@py:/home/django-admin/messagebox$ ls
+	db.sqlite3  lmessages  manage.py  messagebox
+StrangeFox@py:/home/django-admin/messagebox$ cd ..
+StrangeFox@py:/home/django-admin$ ls
+	messagebox
+StrangeFox@py:/home/django-admin$ cd ..
+StrangeFox@py:/home$ ls
+	django-admin  StrangeFox
+StrangeFox@py:/home$ cd StrangeFox/
+StrangeFox@py:~$ ls
+	user.txt
+StrangeFox@py:~$ cat user.txt
+	(The user flag) <---------- This is the (User flag)
+'''''
+
+For the HIDDEN flag. But the hint: "Did you see any identical files?", Didn't exactly ring any bells. The only identical stuff was messagebox directory and the app name of messagebox.
+'''''
+StrangeFox@py:/home$ cd ..
+StrangeFox@py:/$ ls
+	bin   cdrom  etc   initrd.img      lib    lost+found  mnt  proc  run   snap  swapfile  tmp  var
+	boot  dev    home  initrd.img.old  lib64  media       opt  root  sbin  srv   sys       usr  vmlinuz
+StrangeFox@py:/$ cd home/
+StrangeFox@py:/home$ ls
+	django-admin  StrangeFox
+StrangeFox@py:/home$ cd django-admin/
+StrangeFox@py:/home/django-admin$ ls
+	messagebox
+StrangeFox@py:/home/django-admin$ ls messagebox/
+	db.sqlite3  lmessages  manage.py  messagebox
+StrangeFox@py:/home/django-admin$ cd messagebox/
+StrangeFox@py:/home/django-admin/messagebox$ ls
+	db.sqlite3  lmessages  manage.py  messagebox
+StrangeFox@py:/home/django-admin/messagebox$ cd messagebox/
+StrangeFox@py:/home/django-admin/messagebox/messagebox$ ls
+	home.html  __init__.py  __pycache__  settings.py  urls.py  views.py  wsgi.py
+StrangeFox@py:/home/django-admin/messagebox/messagebox$ cat home.html
+
+	{% extends 'base.html' %}
+	{% block title %}Home page{% endblock %}
+
+	{% block content %}
+			<body bgcolor="#E6E6FA">
+			<h1><center>Message box v1.1</center></h1>
+			<br>
+			<center><p>Hi! Welcome back to your inbox. Seems like you got a new message!</p></center>
+			<center><p>Check it out here:</p></center>
+			<center><p><a href="/messages">Messages</a></p></center>
+			<!-- Flag 3: (HIDDEN FLAG) -->
+
+	{% endblock %}
+
+StrangeFox@py:/home/django-admin/messagebox/messagebox$
+'''''
+
+A better method upon looking around for it, was from: https://pencer.io/ctf/ctf-thm-django/
+Using: grep -r 'THM' 2>/dev/null
+(Can be executed from django-admin user as well)
+'''''
+StrangeFox@py:/$ cd /
+StrangeFox@py:/$ grep -r 'THM' 2>/dev/null
+home/django-admin/messagebox/messagebox/home.html:      <!-- Flag 3: (HIDDEN FLAG) -->
+Binary file home/django-admin/messagebox/db.sqlite3 matches
+home/StrangeFox/user.txt:(USER FLAG)
+Binary file boot/initrd.img-4.15.0-20-generic matches
+boot/config-4.15.0-20-generic:CONFIG_RWSEM_XCHGADD_ALGORITHM=y
+boot/config-4.15.0-20-generic:CONFIG_SENSORS_THMC50=m
+Binary file lib/udev/hwdb.bin matches
+lib/udev/hwdb.d/20-OUI.hwdb: ID_OUI_FROM_DATABASE=ALGORITHMS SOFTWARE PVT. LTD.
+lib/udev/hwdb.d/20-OUI.hwdb: ID_OUI_FROM_DATABASE=ALGORITHMICS LTD.
+Binary file lib/modules/4.15.0-20-generic/kernel/fs/cifs/cifs.ko matches
+Binary file lib/modules/4.15.0-20-generic/kernel/arch/x86/kvm/kvm.ko matches
+Binary file lib/modules/4.15.0-20-generic/kernel/sound/pci/cs46xx/snd-cs46xx.ko matches
+^C
+StrangeFox@py:/$
+'''''
+-->
+
+
+- Admin panel flag?
+-- THM{DjanGO_Adm1n}
+
+- User flag?
+-- THM{SSH_gUy_101}
+
+- Hidden flag?
+-- THM{django_w1zzard}
