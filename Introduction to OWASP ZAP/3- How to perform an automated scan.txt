@@ -1,0 +1,48 @@
+##Automated Scan
+--------------------------------------------
+Lets perform an automated scan. Click the big Automated Scan button and input your target.
+
+The automated scan performs both passive and automated scans to build a sitemap and detect vulnerabilities.
+On the next page you may see the options to select either to use “traditional spider” or “Ajax spider”.
+A traditional spider scan is a passive scan that enumerates links and directories of the website. It builds a website index without brute-forcing. This is much quieter than a brute-force attack and can still net a login page or other juicy details, but is not as comprehensive as a bruteforce.
+The Ajax Spider is an add-on that integrates in ZAP a crawler of AJAX rich sites called Crawljax. You can use it in conjunction with the traditional spider for better results. It uses your web browser and proxy.
+The easiest way to use the Ajax Spider is with HTMLUnit. 
+
+To install HTML Unit use the command
+sudo apt install libjenkins-htmlunit-core-js-java
+And then select HtmlUnity from the Ajax Spider Dropdown. 
+(On windows, this HtmlUnity was already as an option in the AJAX Spider settings)
+
+Both utilities can further be configured in the options menu (Ctrl+Alt+O)
+
+--------------------------------------------
+Sample for /login.php page
+
+'''''' Request Sent
+GET http://10.10.101.83/login.php HTTP/1.1
+Proxy-Connection: Keep-Alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Language: en-US
+Cookie: PHPSESSID=2n88c9v62jg2j9odlu1qgbo0h2; security=impossible
+Host: 10.10.101.83
+''''''
+
+'''''' Response Recieved
+HTTP/1.1 200 OK
+Date: Tue, 15 Jun 2021 09:30:44 GMT
+Server: Apache/2.4.7 (Ubuntu)
+X-Powered-By: PHP/5.5.9-1ubuntu4.26
+Expires: Tue, 23 Jun 2009 12:00:00 GMT
+Cache-Control: no-cache, must-revalidate
+Pragma: no-cache
+Vary: Accept-Encoding
+Content-Length: 1523
+Content-Type: text/html;charset=utf-8
+''''''''
+and the actual page contents as well.
+
+The alerts tab shows the exploitation potentials alongside it's associated risk factor with appropriate colored flags.
+
+With very minimal setup we were able to do an automated scan that gave us a sitemap and a handful of vulnerabilities. 

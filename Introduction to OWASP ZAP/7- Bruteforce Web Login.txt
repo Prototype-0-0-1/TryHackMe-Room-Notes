@@ -1,0 +1,30 @@
+##Bruteforce Web Login
+-------------------------------------------------------------
+Lets brute-force a form to get credentials. Although we already know the credentials, lets see if we can use Zap to obtain credentials through a Brute-Force attack.
+If you wanted to do this with BurpSuite, you'd need to intercept the request, and then pass it to Hydra. However, this process is much easier with ZAP!
+
+Navigate to the Brute Force page on DVWA and attempt login as “admin” with the password “test123”
+Then, find the GET request (in the vulnerabilities [folder] >  GET:brute(Login.password,..)) and open the Fuzz menu.
+
+Then highlight the password you attempted and add a wordlist. This selects the area of the request you wish to replace with other data. 
+For speed we can use fasttrack.txt which is located in your /usr/share/wordlists if you’re using Kali Linux. Can also get it from https://github.com/RichardSwierk/Login/blob/master/fasttrack.txt
+
+
+After running the fuzzer, sort the state tab to show Reflected results first. Sometimes you will get false-positives, but you can ignore the passwords that are less than 8 characters in length.
+
+Reflected URLs
+
+    -> vulnerabilities/brute/?username=admin&password=sql&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=sql&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=security&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=sa&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=sa&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=password&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=pass&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=nt&Login=Login
+    -> vulnerabilities/brute/?username=admin&password=admin&Login=Login
+
+security & password seem to be the candidates
+
+- Use ZAP to bruteforce the DVWA 'brute-force' page. What's the password?
+-- password

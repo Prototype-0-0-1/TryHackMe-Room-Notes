@@ -1,0 +1,25 @@
+##Manual Scan
+---------------------------------------------------------
+Lets perform a manual scan against the DVWA machine.
+Like Burp, you should set-up your proxy between OWASP ZAP and your Browser. We’ll be using Firefox. 
+In the (Ctrl + Alt + O) options section, search for Local Proxies. Choose the port number which may not be used on your machine. The address will be: 127.0.0.1 since it is on your own localhost machine
+
+Add ZAP Certificates:
+    Without importing ZAP Certificates, ZAP is unable to handle simultaneous Web request forwarding and intercepting. Do not skip this step. 
+    Save the certificate by going to Dymanimc SSL Certificates in the Options (Ctrl + Alt + O) tab of OWASP ZAP.
+
+    In the same options menu, navigate to Dynamic SSL Certificates and save the certificate somewhere you’ll remember and not delete.
+
+    Then, open Firefox, navigate to your preferences, and search for certificates and click “View Certificates” 
+    Then click “Import” and then navigate to the earlier downloaded certificate and open it. 
+    Select both and then hit OK.
+
+Firefox Proxy Setup:
+    Go back to your Firefox preferences and search for “proxy”. Click Settings.
+    Adjust your Manual Proxy Configuration to match the details chosen for OWASP ZAP in the previous steps. (The port number as well as the address)
+
+Now you’re set-up! Time to get into the fun stuff :)
+
+- What IP do we use for the proxy?            
+-- 127.0.0.1
+--> Since, we are performing everything on the localhost machine itself.

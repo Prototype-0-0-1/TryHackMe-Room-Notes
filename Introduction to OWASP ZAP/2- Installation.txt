@@ -1,0 +1,6 @@
+##Installation
+-----------------------------------
+OWASP ZAP has a handy installer for Windows, Mac OS, and Linux systems.
+
+Download and install it from the official website: https://www.zaproxy.org/download/
+(Will be using Windows version for this instance. The actual product is same across all the platforms. So, no need to worry about any OS issues.)

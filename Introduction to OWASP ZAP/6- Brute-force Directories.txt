@@ -1,0 +1,10 @@
+##Brute-force Directories
+-------------------------------------------------------------
+If the passive scans are not enough, you can use a wordlist attack and directory bruteforce through ZAP just as you would with gobuster. This would pick up pages that are not indexed.
+
+First. Go into your ZAP Options (at the bottom navigation panel, with the screen plus button), navigate to Forced Browse, and add the Custom Wordlist. You can also add more threads and turn off recursive brute-forcing.
+Then, right click the site->attack->forced browse site
+
+Select your imported wordlist from the list menu, and then hit the play button! We recommend using this(https://github.com/thesp0nge/enchant/blob/master/db/directory-list-2.3-medium.txt) wordlist for this exercise.
+
+ZAP will now bruteforce the entire website with your wordlist.
