@@ -1,0 +1,166 @@
+##Making requests
+-------------------------------------------------------
+Click the "View Site" button on the right.
+
+This is an emulator for making demo HTTP requests, using what you've learnt from the above tasks you can use it to complete the below questions.
+(After setting the kye-value pairs in the settings tab, don't forget to remove/change them for the next request)
+
+- Make a GET request to /room
+-->
+Sent Request
+''''''''''
+GET /room HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+''''''''''
+
+Response Recieved
+'''''''''
+HTTP/1.1 200 Ok
+Server: nginx/1.15.8
+Thu, 17 Jun 2021 14:2:9 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 233
+Last-Modified: Thu, 17 Jun 2021 14:2:9 GMT
+
+<html>
+<head>
+    <title>TryHackMe</title>
+</head>
+<body>
+    Welcome to the Room page THM{YOU'RE_IN_THE_ROOM}
+</body>
+</html>
+'''''''''
+-->
+-- THM{YOU'RE_IN_THE_ROOM}
+
+- Make a GET request to /blog and using the gear icon set the id parameter to 1 in the URL field
+-->
+(Directly URL Won't be allowed to change, since ? is not allowed in the URL Directly. Go to settings, use the key-value pair as 'id' & '1' [without quoees] respectively. Then click save. So, the parameters will be added to the request)
+Sent Request
+''''''''''
+GET /blog?id=1 HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+''''''''''
+
+Response Recieved
+'''''''''
+HTTP/1.1 200 Ok
+Server: nginx/1.15.8
+Thu, 17 Jun 2021 14:4:54 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 231
+Last-Modified: Thu, 17 Jun 2021 14:4:54 GMT
+
+<html>
+<head>
+    <title>TryHackMe</title>
+</head>
+<body>
+    Viewing Blog article 1 THM{YOU_FOUND_THE_BLOG}
+</body>
+</html>
+'''''''''
+-->
+-- THM{YOU_FOUND_THE_BLOG}
+
+- Make a DELETE request to /user/1
+-->
+Sent Request
+''''''''''
+DELETE /user/1 HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+Content-Length: 0
+''''''''''
+
+Response Recieved
+'''''''''
+HTTP/1.1 200 Ok
+Server: nginx/1.15.8
+Thu, 17 Jun 2021 14:7:9 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 231
+Last-Modified: Thu, 17 Jun 2021 14:7:9 GMT
+
+<html>
+<head>
+    <title>TryHackMe</title>
+</head>
+<body>
+    The user has been deleted THM{USER_IS_DELETED}
+</body>
+</html>
+'''''''''
+-->
+-- THM{USER_IS_DELETED}
+
+- Make a PUT request to /user/2 with the username parameter set to admin
+-->
+(Similar to the /blog example, we set the kye-value as 'username' & 'admin' respectively)
+Sent Request
+''''''''''
+PUT /user/2 HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+Content-Length: 14
+
+username=admin
+''''''''''
+
+Response Recieved
+'''''''''
+HTTP/1.1 200 Ok
+Server: nginx/1.15.8
+Thu, 17 Jun 2021 14:9:15 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 232
+Last-Modified: Thu, 17 Jun 2021 14:9:15 GMT
+
+<html>
+<head>
+    <title>TryHackMe</title>
+</head>
+<body>
+    Username changed to admin THM{USER_HAS_UPDATED}
+</body>
+</html>
+'''''''''
+-->
+-- THM{USER_HAS_UPDATED}
+
+- POST the username of thm and a password of letmein to /login
+-->
+(Similar to the /blog example, we set the kye-value as 'username' & 'thm' respectively. And we add another pair in the form of 'password' & 'letmein' respectively as key & value)
+Sent Request
+''''''''''
+POST /login HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+Content-Length: 33
+
+username=thm&password=letmein
+''''''''''
+
+Response Recieved
+'''''''''
+HTTP/1.1 200 Ok
+Server: nginx/1.15.8
+Thu, 17 Jun 2021 14:14:8 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 237
+Last-Modified: Thu, 17 Jun 2021 14:14:8 GMT
+
+<html>
+<head>
+    <title>TryHackMe</title>
+</head>
+<body>
+    You logged in! Welcome Back THM{HTTP_REQUEST_MASTER}
+</body>
+</html>
+'''''''''
+-->
+-- THM{HTTP_REQUEST_MASTER}
