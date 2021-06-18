@@ -1,0 +1,61 @@
+##PGP, GPG and AES
+----------------------------------
+#What is PGP?
+PGP stands for Pretty Good Privacy. It’s a software that implements encryption for encrypting files, performing digital signing and more.
+
+#What is GPG?
+GnuPG or GPG (https://gnupg.org/) is an Open Source implementation of PGP from the GNU project. You may need to use GPG to decrypt files in CTFs. With PGP/GPG, private keys can be protected with passphrases in a similar way to SSH private keys. If the key is passphrase protected, you can attempt to crack this passphrase using John The Ripper and gpg2john. The key provided in this task is not protected with a passphrase.
+The man page for GPG can be found online here. (The man page for GPG can be found online here.)
+
+#What about AES?
+AES, sometimes called Rijndael after its creators, stands for Advanced Encryption Standard. It was a replacement for DES which had short keys and other cryptographic flaws.
+AES and DES both operate on blocks of data (a block is a fixed size series of bits).
+AES is complicated to explain, and doesn’t seem to come up as often. If you’d like to learn how it works, here’s an excellent video from Computerphile https://www.youtube.com/watch?v=O4xNJsjtN6E
+
+- Time to try some GPG. Download the archive attached and extract it somewhere sensible.
+-- -Completed-
+
+- You have the private key, and a file encrypted with the public key. Decrypt the file. What's the secret word?
+-->
+Steps to Perform:
+''''''
+unzip gpg.zip
+sudo gpg --import tryhackme.key
+sudo gpg message.gpg
+ls
+cat message
+''''''
+
+unzip gpg.zip
+''''''
+    Archive:  gpg.zip
+    extracting: message.gpg
+    inflating: tryhackme.key
+''''''
+
+sudo gpg --import tryhackme.key
+''''''
+gpg: /root/.gnupg/trustdb.gpg: trustdb created
+gpg: key FFA4B5252BAEB2E6: public key "TryHackMe (Example Key)" imported
+gpg: key FFA4B5252BAEB2E6: secret key imported
+gpg: Total number processed: 1
+gpg:               imported: 1
+gpg:       secret keys read: 1
+gpg:   secret keys imported: 1
+''''''
+
+sudo gpg message.gpg
+''''''
+gpg: WARNING: no command supplied.  Trying to guess what you mean ...
+gpg: encrypted with 1024-bit RSA key, ID 2A0A5FDC5081B1C5, created 2020-06-30
+      "TryHackMe (Example Key)"
+''''''
+
+cat message
+''''''
+You decrypted the file!
+The secret word is Pineapple.
+''''''
+
+-->
+-- Pineapple
