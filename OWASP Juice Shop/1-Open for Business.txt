@@ -12,6 +12,7 @@ Juice Shop is a large application so we will not be covering every topic from th
 We will, however, cover the following topics which we recommend you take a look at as you progress through this room.
 
 I'll be using OWASP ZAP for the whole room, so yay :)
+Note: OWASP ZAP's passive scans might trigger a few flags by themselves. So, if you are looking for those flags, Task 8 will guide you, where to see these flags.
 
 <------------------------------------------------->
 

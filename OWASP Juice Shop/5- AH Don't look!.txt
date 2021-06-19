@@ -7,38 +7,38 @@ More information: Sensitive Data Exposure (https://owasp.org/www-project-top-ten
 
 - Question #1: Access the Confidential Document!
 -->
-Navigate to the About Us page, and hover over the "Check out our terms of use".
+    Navigate to the About Us page, and hover over the "Check out our terms of use".
 
-You will see that it links to  http://MACHINE_IP/ftp/legal.md. Navigating to that /ftp/ directory reveals that it is exposed to the public!
-We will download the acquisitions.md and save it. It looks like there are other files of interest here as well.
+    You will see that it links to  http://MACHINE_IP/ftp/legal.md. Navigating to that /ftp/ directory reveals that it is exposed to the public!
+    We will download the acquisitions.md and save it. It looks like there are other files of interest here as well.
 
-After downloading it, navigate to the home page to receive the flag!
+    After downloading it, navigate to the home page to receive the flag!
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
 
 - Question #2: Log into MC SafeSearch's account!
 -->
-https://www.youtube.com/watch?v=v59CX2DiX0Y
-After watching the video there are certain parts of the song that stand out.
+    https://www.youtube.com/watch?v=v59CX2DiX0Y
+    After watching the video there are certain parts of the song that stand out.
 
-He notes that his password is "Mr. Noodles" but he has replaced some "vowels into zeros", meaning that he just replaced the o's into 0's.
+    He notes that his password is "Mr. Noodles" but he has replaced some "vowels into zeros", meaning that he just replaced the o's into 0's.
 
-We now know the password to the mc.safesearch@juice-sh.op account is "Mr. N00dles"
+    We now know the password to the mc.safesearch@juice-sh.op account is "Mr. N00dles"
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
 
 - Question #3: Download the Backup file!
 -->
-We will now go back to the  http://MACHINE_IP/ftp/ folder and try to download package.json.bak. But it seems we are met with a 403 which says that only .md and .pdf files can be downloaded. 
+    We will now go back to the  http://MACHINE_IP/ftp/ folder and try to download package.json.bak. But it seems we are met with a 403 which says that only .md and .pdf files can be downloaded. 
 
-To get around this, we will use a character bypass called "Poison Null Byte". A Poison Null Byte looks like this: %00. 
-Note that we can download it using the url, so we will encode this into a url encoded format.
-The Poison Null Byte will now look like this: %2500. Adding this and then a .md to the end will bypass the 403 error!
+    To get around this, we will use a character bypass called "Poison Null Byte". A Poison Null Byte looks like this: %00. 
+    Note that we can download it using the url, so we will encode this into a url encoded format.
+    The Poison Null Byte will now look like this: %2500. Adding this and then a .md to the end will bypass the 403 error!
 
-Why does this work? 
-'''''''
-A Poison Null Byte is actually a NULL terminator. By placing a NULL character in the string at a certain byte, the string will tell the server to terminate at that point, nulling the rest of the string. 
-'''''''
+    Why does this work? 
+    '''''''
+    A Poison Null Byte is actually a NULL terminator. By placing a NULL character in the string at a certain byte, the string will tell the server to terminate at that point, nulling the rest of the string. 
+    '''''''
 
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-

@@ -10,42 +10,39 @@ More information: Broken Access Control (https://owasp.org/www-project-top-ten/O
 
 - Question #1: Access the administration page!
 -->
-First, we are going to open the Debugger on Firefox. 
-(Or Sources on Chrome.)
-This can be done by navigating to it in the Web Developers menu. 
+    First, we are going to open the Debugger on Firefox. 
+    (Or Sources on Chrome.)
+    This can be done by navigating to it in the Web Developers menu. 
 
-We are then going to refresh the page and look for a javascript file for main-es2015.js
-We will then go to that page at: http://MACHINE_IP/main-es2015.js
+    We are then going to refresh the page and look for a javascript file for main-es2015.js
+    We will then go to that page at: http://MACHINE_IP/main-es2015.js
 
-To get this into a format we can read, click the {}  button at the bottom  
-Now search for the term "admin" 
+    To get this into a format we can read, click the {}  button at the bottom  
+    Now search for the term "admin" 
 
-You will come across a couple of different words containing "admin" but the one we are looking for is "path: administration"
-    
-    .....Xs=[{path:"administration",.....
+    You will come across a couple of different words containing "admin" but the one we are looking for is "path: administration"
+        
+        .....Xs=[{path:"administration",.....
 
-was
-This hints towards a page called "/#/administration" as can be seen by the about path a couple lines below, but going there while not logged in doesn't work. 
-As this is an Administrator page, it makes sense that we need to be in the Admin account in order to view it.
-A good way to stop users from accessing this is to only load parts of the application that need to be used by them. This stops sensitive information such as an admin page from been leaked or viewed.
-
+    was the line in the JS file
+    This hints towards a page called "/#/administration" as can be seen by the about path a couple lines below, but going there while not logged in doesn't work. 
+    As this is an Administrator page, it makes sense that we need to be in the Admin account in order to view it.
+    A good way to stop users from accessing this is to only load parts of the application that need to be used by them. This stops sensitive information such as an admin page from been leaked or viewed.
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
 
 - Question #2: View another user's shopping basket!
 -->
-Login to the Admin account and click on 'Your Basket'. Make sure Burp is running so you can capture the request!
-Forward each request until you see: GET /rest/basket/1 HTTP/1.1
+    Login to the Admin account and click on 'Your Basket'. Make sure Burp is running so you can capture the request! (Or Break is running in case of ZAP)
+    Forward each request until you see: GET /rest/basket/1 HTTP/1.1
 
-Now, we are going to change the number 1 after /basket/ to 2
-It will now show you the basket of UserID 2. You can do this for other UserIDs as well, provided that they have one!
-
+    Now, we are going to change the number 1 after /basket/ to 2
+    It will now show you the basket of UserID 2. You can do this for other UserIDs as well, provided that they have one!
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
 
 - Question #3: Remove all 5-star reviews!
 -->
-Navigate to the  http://MACHINE_IP/#/administration page again and click the bin icon next to the review with 5 stars!
-
+    Navigate to the  http://MACHINE_IP/#/administration page again and click the bin icon next to the review with 5 stars!
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
