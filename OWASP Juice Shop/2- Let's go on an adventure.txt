@@ -10,21 +10,21 @@ This is called walking through the application, which is also a form of reconnai
 
 - Question #2: What parameter is used for searching? 
 -->
-Click on the magnifying glass in the top right of the application will pop out a search bar.
+    Click on the magnifying glass in the top right of the application will pop out a search bar.
 
-We can then input some text and by pressing Enter will search for the text which was just inputted.
-Now pay attention to the URL which will now update with the text we just entered.
-We can now see the search parameter after the /#/search? the letter q
+    We can then input some text and by pressing Enter will search for the text which was just inputted.
+    Now pay attention to the URL which will now update with the text we just entered.
+    We can now see the search parameter after the /#/search? the letter q
 
-https://10.10.14.251/#/search?q=what
+    https://10.10.14.251/#/search?q=what
 
-This is the search query for searcing 'what' on my instance. Using the knowledge of URLs from Web Fundamentals, we understand that, data after ? are the parameters. Thus, q is the search parameter
+    This is the search query for searcing 'what' on my instance. Using the knowledge of URLs from Web Fundamentals, we understand that, data after ? are the parameters. Thus, q is the search parameter
 -->
 -- q
 
 - Question #3: What show does Jim reference in his review? 
 -->
-Jim did a review on the Green Smoothie product. We can see that he mentions a replicator. 
-If we google "replicator" we will get the results indicating that it is from a TV show called Star Trek
+    Jim did a review on the Green Smoothie product. We can see that he mentions a replicator. 
+    If we google "replicator" we will get the results indicating that it is from a TV show called Star Trek
 -->
 -- Star Trek

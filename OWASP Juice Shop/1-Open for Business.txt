@@ -11,6 +11,8 @@ In addition, it's highly recommended to check out the 'Web Fundamentals' (https:
 Juice Shop is a large application so we will not be covering every topic from the top 10.
 We will, however, cover the following topics which we recommend you take a look at as you progress through this room.
 
+I'll be using OWASP ZAP for the whole room, so yay :)
+
 <------------------------------------------------->
 
 Injection (https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection)

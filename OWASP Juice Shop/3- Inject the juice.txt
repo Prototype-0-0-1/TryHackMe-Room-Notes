@@ -20,48 +20,60 @@ But in our case, we will be using SQL Injection. For more information: Injection
 
 - Question #1: Log into the administrator account!
 -->
-After we navigate to the login page, enter some data into the email and password fields.
- Before clicking submit, make sure Intercept mode is on.
-This will allow us to see the data been sent to the server!
+    After we navigate to the login page, enter some data into the email and password fields.
+    Before clicking submit, make sure Intercept mode is on.
+    This will allow us to see the data been sent to the server!
 
-We will now change the "a" next to the email to: ' or 1=1-- and forward it to the server.
+    We will now change the "a" next to the email to: ' or 1=1-- and forward it to the server.
 
-#Why does this work?
-'''''''
-1. The character ' will close the brackets in the SQL query
-2. 'OR' in a SQL statement will return true if either side of it is true. As 1=1 is always true, the whole statement is true. Thus it will tell the server that the email is valid, and log us into user id 0, which happens to be the administrator account.
-3. The -- character is used in SQL to comment out data, any restrictions on the login will no longer work as they are interpreted as a comment. This is like the # and // comment in python and javascript respectively.
-'''''''
+    #Why does this work?
+    '''''''
+    1. The character ' will close the brackets in the SQL query
+    2. 'OR' in a SQL statement will return true if either side of it is true. As 1=1 is always true, the whole statement is true. Thus it will tell the server that the email is valid, and log us into user id 0, which happens to be the administrator account.
+    3. The -- character is used in SQL to comment out data, any restrictions on the login will no longer work as they are interpreted as a comment. This is like the # and // comment in python and javascript respectively.
+    '''''''
 
-Another way to say it would be, (Pretty much same as above)
-''''''' 
-Maybe in the backend, the data is verified as: IF email=='{our_entered_email}' and passwod='{our_entered_password}' THEN perform_login()
-So, if our entered email is: ' or 1=1--
-Now, the IF condition would be:
-    email=='' or 1=1-- and password='a'
-But as specified above, -- is like a comment, so overall, the if condition would become:
-    email=='' or 1=1
-Now, since 1=1 will always evaluate for TRUE, alonside the fact that [any_number or 1] will always result in 1
-So, the IF condition results in a true.
-Thereby, we perform the login
-'''''''
+    Another way to say it would be, (Pretty much same as above)
+    
+    I used OWASP ZAP rather than Burp, since I had it installed and ready to go.
+    Put the details in the login form, I put the email as 'a' and for the password, I just put 'ab'
+    Before clickin login, ensure that intercept/break is on.
+    Once the request is sent (login was clicked), the data in the request 
+    In email, replace a to ' or 1=1--
+    Now, forward the request. 
+    BOOM! you are logged in.
+
+    ''''''' 
+    Maybe in the backend, the data is verified as: IF email=='{our_entered_email}' and passwod='{our_entered_password}' THEN perform_login()
+    So, if our entered email is: ' or 1=1--
+    Now, the IF condition would be:
+        email=='' or 1=1-- and password='a'
+    But as specified above, -- is like a comment, so overall, the if condition would become:
+        email=='' or 1=1
+    Now, since 1=1 will always evaluate for TRUE, alonside the fact that [any_number or 1] will always result in 1
+    So, the IF condition results in a true.
+    Thereby, we perform the login
+    '''''''
+
+    We could directly put ' or 1=1-- in the email in the browser itself. But, there could be a possiblity that the character as escaped at the client side.
+    Thus, using the requests is a relatively safer option. Also, we need to get used to use requests, they are really helpful.
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
 
 - Question #2: Log into the Bender account!
 -->
-Similar to what we did in Question #1, we will now log into Bender's account! Capture the login request again, but this time we will put: bender@juice-sh.op'-- as the email. 
-Now, forward that to the server!
-Now, forward that to the server!
+    Similar to what we did in Question #1, we will now log into Bender's account! Capture the login request again, but this time we will put: bender@juice-sh.op'-- as the email. 
+    Now, forward that to the server!
+    Now, forward that to the server!
 
-But why don't we put the 1=1?
-'''''''
-Well, as the email address is valid (which will return true), we do not need to force it to be true. Thus we are able to use '-- to bypass the login system. Note the 1=1 can be used when the email or username is not known or invalid
-'''''''
+    But why don't we put the 1=1?
+    '''''''
+    Well, as the email address is valid (which will return true), we do not need to force it to be true. Thus we are able to use '-- to bypass the login system. Note the 1=1 can be used when the email or username is not known or invalid
+    '''''''
 
-In this case, since we know the email of the user, but not the password, 
-we put the email as bender@juice-sh.op to interpret the vaild email input, 
-followed by ' to complete the SQL matching string
-which is followed by -- to ignore/comment out the password check
+    In this case, since we know the email of the user, but not the password, 
+    we put the email as bender@juice-sh.op to interpret the vaild email input, 
+    followed by ' to complete the SQL matching string
+    which is followed by -- to ignore/comment out the password check
 -->
 -- -Ans-given-from-website-itself-just-copy-paste-it-
