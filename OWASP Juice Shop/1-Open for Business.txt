@@ -1,0 +1,42 @@
+##Getting Started
+-------------------------------------------------------------------------
+Within this room, we will look at OWASP's TOP 10 vulnerabilities (https://owasp.org/www-project-top-ten/) in web applications. You will find these in all types in all types of web applications. But for today we will be looking at OWASP's own creation, Juice Shop!
+
+We will be using Burp Suite, so if you haven't already got it set up, here is a link to the 'Burp Suite' (https://tryhackme.com/room/rpburpsuite) room.
+[The 'Burp Suite' room is a subscriber-only room, meaning you will require a TryHackMe subscription in order to access it]
+
+In addition, it's highly recommended to check out the 'Web Fundamentals' (https://tryhackme.com/room/webfundamentals) room. 
+[The 'Web Fundamentals' room is a free room, meaning that, like this room, anyone is able to complete it]
+
+Juice Shop is a large application so we will not be covering every topic from the top 10.
+We will, however, cover the following topics which we recommend you take a look at as you progress through this room.
+
+<------------------------------------------------->
+
+Injection (https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection)
+
+Broken Authentication (https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A1-Injection)
+
+Sensitive Data Exposure (https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A3-Sensitive_Data_Exposure)
+
+Broken Access Control (https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A5-Broken_Access_Control)
+
+Cross-Site Scripting XSS (https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS))
+
+<------------------------------------------------->
+
+[Task 3] and onwards will require a flag, which will be displayed on completion of the task.
+
+#Troubleshooting
+Temporarily disable burp in your proxy settings for the current browser. Refresh the page and the flag will be shown. 
+This is not an issue with the application but an issue with burp stopping the flag from being shown. 
+If you are doing the XSS Tasks and they are not working. Clear your cookies and site data, as this can sometimes be an issue. 
+If you are sure that you have completed the task but it's still not working. Go to [Task 8], as this will allow you to check its completion.
+
+Credits to OWASP (https://www.owasp.org/index.php/Main_Page) and Bjorn Kimminich (https://twitter.com/bkimminich)
+
+- Deploy the VM attached to this task to get started! You can access this machine by using your browser-based machine, or if you're connected through OpenVPN.
+-- -No-ans-needed-
+
+- Once the machine has loaded, access it by copying and pasting its IP into your browser; if you're using the browser-based machine, paste the machines IP into a browser on that machine.
+-- -No-ans-needed-

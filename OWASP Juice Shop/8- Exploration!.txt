@@ -1,0 +1,6 @@
+##Exploration
+----------------------------------
+If you wish to tackle some of the harder challenges that were not covered within this room, check out the /#/score-board/ section on Juice-shop. Here you can see your completed tasks as well as other tasks in varying difficulty.
+
+- Access the /#/score-board/ page
+-- -Ans-given-from-website-itself-just-copy-paste-it-
