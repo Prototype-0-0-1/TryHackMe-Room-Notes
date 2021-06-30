@@ -1,0 +1,32 @@
+##Be for Specific
+--------------------------------------
+Most of the time, you won’t be looking for something in your working directory. The first argument of your find command should be the directory you want to search. The command will search in that directory and in all its subdirectories. So, if you want to search the whole filesystem, your command should begin with find /.
+
+Two very useful flags are the -type and -name flags. With -type, you can use d to only find directories, and f to only find files. The -name flag is used to specify a name or pattern to look for. You can type the whole name, or use wildcards to specify only part(s) of the name. If you use wildcards, you need to enclose your pattern in quotes, otherwise the command won't work as intended. It is useful to know that you can also use the -iname flag; same as -name, but case insensitive.
+
+- Find all files whose name ends with ".xml"
+-->
+To find all the files, we begin with '''find /'''
+We use '''-type f''' since we are searching for files
+We then use '''-name''' with the argument ''' "*.xml" '''
+- *.xml means EverythingIsPossible.xml, this results in matching against all files with the extension of .xml
+- Quotes(") are needed when using -name (which is also specified in the reading material above)
+-->
+-- find / -type f -name "*.xml"
+
+- Find all files in the /home directory (recursive) whose name is "user.txt" (case insensitive)
+-->
+To find all the files in /home, we begin with '''find /home'''
+We use '''-type f''' since we are searching for files
+Since, the file name is ''' "user.txt" ''', and since it is specified to be case insensitive, we will be using ''' -iname ''' argument
+-->
+-- find /home -type f -iname "user.txt"
+
+- Find all directories whose name contains the word "exploits"
+-->
+To find all the directories, we begin with '''find /'''
+We use '''-type d''' since we are searching for directories
+Assuming case insensitive, the parameter ''' -iname ''' will be used
+Now the pattern would be matched against ''' "*exploits*" ''', This will ensure that all possibilities with the substring of exploits is considered
+-->
+-- find / -type d -iname "*exploits*"
