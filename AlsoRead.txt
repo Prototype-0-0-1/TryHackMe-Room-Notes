@@ -1,0 +1,25 @@
+#What to do whem you have been given a target
+//Based upon th video for Picke Rick
+---------------------------------------------------
+#Network Mapper: Nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses.
+NMAP
+nmap -sC -sV -oN nmap/initial <machine-ip>
+---------------------------------------------------
+#Nikto is a free software command-line vulnerability scanner that scans webservers for dangerous files/CGIs, outdated server software and other problems
+nikto
+nikto -h http://<machine-ip> | tee nikto.log
+---------------------------------------------------
+#Directory Brute-Force: Gobuster is a scanner that looks for existing or hidden web objects. It works by launching a dictionary attack against a web server and analyzing the response.
+gobuster -u http://<IP> path-to-the-wordlist
+(directory-list-2.3-medium.txt)
+---------------------------------------------------
+If commands like cat, head, tail, nano,.. do not work,
+Try:
+    echo < file-name
+OR
+    while read line;do echo $line; done < file-name
+OR
+    grep . file-name
+        i.e.
+    grep <pattern> file-name
+---------------------------------------------------
