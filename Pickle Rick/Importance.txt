@@ -1,0 +1,8 @@
+
+Username: R1ckRul3s (comment in Home Page)
+
+Wubbalubbadubdub (from robots.txt)
+
+/login.php - 200
+/portal.php -302 -> /login.php
+
