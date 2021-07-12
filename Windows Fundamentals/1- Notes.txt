@@ -1,0 +1,138 @@
+
+---------------------------------------------------------------
+The Windows operating system (OS) is a complex product with many system files, utilities, settings, features, etc. 
+
+RDP is used to connect to the windows virtual machine. https://www.cyberark.com/resources/threat-research-blog/explain-like-i-m-5-remote-desktop-protocol-rdp
+RDP allows users to control their remote Windows machine as if they were working on it locally (well, almost).
+---------------------------------------------------------------
+The Windows operating system has a long history dating back to 1985, and currently, it is the dominant operating system in both home use and corporate networks. Because of this, Windows has always been targeted by hackers & malware writers.
+
+Windows 10 is the latest OS currently available. (Windows 11 has just been released - Dev version)
+It has a Pro version & a Home version. Pro has some features that aren't available on Windows Home.
+
+- What encryption can you enable on Pro that you can't enable in Home?
+--> https://www.microsoft.com/en-us/windows/compare-windows-10-home-vs-pro
+---------------------------------------------------------------
+The Windows Desktop, aka the graphical user interface or GUI in short, is the screen that welcomes you once you log into a Windows 10 machine.
+
+The login screen is where you need to enter valid account credentials; usually, a username & password of a preexisting Windows account on that particular system or in the Active Directory environment (if it's a domain-joined machine). 
+
+- Which selection will hide/disable the Search box?
+--> Taskbar (Right Click) > Search (Hover) > [Option for hiding/disabling]
+
+- Which selection will hide/disable the Task View button?
+--> Taskbar (Right Click) > [Has a checkbox type option for hide/disable Task View button]
+
+- Besides Clock, Volume, and Network, what other icon is visible in the Notification Area?
+--> Notification Area (On the bottom-right side) - The rightmost whisper bubble (Right Click) > [It says the name of the other icon as well]
+---------------------------------------------------------------
+The file system used in modern versions of Windows is the New Technology File System or simply NTFS.
+
+NTFS is known as a journaling file system. In case of a failure, the file system can automatically repair the folders/files on disk using information stored in a log file. This function is not possible with FAT.   
+
+NTFS addresses many of the limitations of the previous file systems; such as: 
+- Supports files larger than 4GB
+- Set specific permissions on folders and files
+- Folder and file compression
+- Encryption (Encryption File System or EFS) https://docs.microsoft.com/en-us/windows/win32/fileio/file-encryption
+
+https://docs.microsoft.com/en-us/troubleshoot/windows-client/backup-and-storage/fat-hpfs-and-ntfs-file-systems
+
+On NTFS volumes, you can set permissions that grant or deny access to files and folders.
+
+The permissions are:
+- Full control
+- Modify
+- Read & Execute
+- List folder contents
+- Read
+- Write
+
+https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-2000-server/bb727008(v=technet.10)?redirectedfrom=MSDN
+
+How can you view the permissions for a file or folder?
+- Right-click the file or folder you want to check for permissions.
+- From the context menu, select Properties.
+- Within Properties, click on the Security tab.
+- In the Group or user names list, select the user, computer, or group whose permissions you want to view.
+
+Another feature of NTFS is Alternate Data Streams (ADS).
+Alternate Data Streams (ADS) is a file attribute specific to Windows NTFS (New Technology File System).
+
+Every file has at least one data stream ($DATA), and ADS allows files to contain more than one stream of data. Natively Window Explorer (https://support.microsoft.com/en-us/windows/what-s-changed-in-file-explorer-ef370130-1cca-9dc5-e0df-2f7416fe1cb1) doesn't display ADS to the user. There are 3rd party executables that can be used to view this data, but Powershell (https://support.microsoft.com/en-us/windows/what-s-changed-in-file-explorer-ef370130-1cca-9dc5-e0df-2f7416fe1cb1) gives you the ability to view ADS for files.
+
+From a security perspective, malware writers have used ADS to hide data.
+
+Not all its uses are malicious. For example, when you download a file from the Internet, there are identifiers written to ADS to identify that the file was downloaded from the Internet.
+To learn more about ADS, refer to the following link from MalwareBytes: https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/ 
+
+- What is the meaning of NTFS?
+--> New Technology File System i.e NTFS
+---------------------------------------------------------------
+The Windows folder (C:\Windows) is traditionally known as the folder which contains the Windows operating system. 
+
+This is where environment variables, more specifically system environment variables, come into play. Even though not discussed yet, the system  environment variable for the Windows directory is %windir%.
+
+Per Microsoft, "Environment variables store information about the operating system environment. This information includes details such as the operating system path, the number of processors used by the operating system, and the location of temporary folders".
+- https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables?view=powershell-7.1
+
+The System32 folder holds the important files that are critical for the operating system.
+
+You should proceed with extreme caution when interacting with this folder. Accidentally deleting any files or folders within System32 can render the Windows OS inoperational. Read more about this action: https://www.howtogeek.com/346997/what-is-the-system32-directory-and-why-you-shouldnt-delete-it/. 
+
+- What is the system variable for the Windows folder?
+--> %windir%
+---------------------------------------------------------------
+User accounts can be one of two types on a typical local Windows system: Administrator & Standard User. 
+
+The user account type will determine what actions the user can perform on that specific Windows system. 
+- An Administrator can make changes to the system: add users, delete users, modify groups, modify settings on the system, etc. 
+- A Standard User can only make changes to folders/files attributed to the user & can't perform system-level changes, such as install programs.
+
+When a user account is created, a profile is created for the user. The location for each user profile folder will fall under is C:\Users.
+For example, the user profile folder for the user account Max will be C:\Users\Max.
+
+Each user profile will have the same folders; a few of them are:
+- Desktop
+- Documents
+- Downloads
+- Music
+- Pictures
+
+Another way to access this information, and then some, is using Local User and Group Management. 
+Right-click on the Start Menu and click Run. Type lusrmgr.msc
+
+Each group has permissions set to it, and users are assigned/added to groups by the Administrator. When a user is assigned to a group, the user inherits the permissions of that group. A user can be assigned to multiple groups.
+
+- What is the name of the other user account?
+-- 
+
+- What groups is this user a member of?
+-- 
+
+- What built-in account is for guest access to the computer?
+-- 
+
+- What is the account status?
+-- 
+---------------------------------------------------------------
+The large majority of home users are logged into their Windows systems as local administrators. Remember from the previous task that any user with administrator as the account type can make changes to the system.
+
+A user doesn't need to run with high (elevated) privileges on the system to run tasks that don't require such privileges, such as surfing the Internet, working on a Word document, etc. This elevated privilege increases the risk of system compromise because it makes it easier for malware to infect the system. Consequently, since the user account can make changes to the system, the malware would run in the context of the logged-in user.
+
+To protect the local user with such privileges, Microsoft introduced User Account Control (UAC). This concept was first introduced with the short-lived Windows Vista and continued with versions of Windows that followed.
+Note: UAC (by default) doesn't apply for the built-in local administrator account. 
+
+How does UAC work? When a user with an account type of administrator logs into a system, the current session doesn't run with elevated permissions. When an operation requiring higher-level privileges needs to execute, the user will be prompted to confirm if they permit the operation to run. 
+
+https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/how-user-account-control-works
+---------------------------------------------------------------
+Control Panel is the menu where you will access more complex settings and perform more complex actions. In some cases, you can start in Settings and end up in the Control Panel.
+---------------------------------------------------------------
+The Task Manager provides information about the applications and processes currently running on the system. Other information is also available, such as how much CPU and RAM are being utilized, which falls under Performance. 
+
+You can access the Task Manager by right-clicking the taskbar. 
+
+Press Ctrl+Shift+Esc to open the Task Manager with a keyboard shortcut or right-click the Windows taskbar and select “Task Manager.”
+- https://www.howtogeek.com/405806/windows-task-manager-the-complete-guide/
+---------------------------------------------------------------
