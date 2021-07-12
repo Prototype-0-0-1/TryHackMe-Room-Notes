@@ -1,0 +1,66 @@
+Image file is a the iconic background for the OS: Windows XP
+
+Exif tool to get info about the Image
+
+ExifTool Version Number         : 10.80
+File Name                       : WindowsXP.jpg
+Directory                       : .
+File Size                       : 229 kB
+File Modification Date/Time     : 2021:07:12 19:17:15+05:30
+File Access Date/Time           : 2021:07:12 19:21:38+05:30
+File Inode Change Date/Time     : 2021:07:12 19:17:24+05:30
+File Permissions                : rwxrwxrwx
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+XMP Toolkit                     : Image::ExifTool 11.27
+GPS Latitude                    : 54 deg 17' 41.27" N
+GPS Longitude                   : 2 deg 15' 1.33" W
+Copyright                       : OWoodflint
+Image Width                     : 1920
+Image Height                    : 1080
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+GPS Latitude Ref                : North
+GPS Longitude Ref               : West
+Image Size                      : 1920x1080
+Megapixels                      : 2.1
+GPS Position                    : 54 deg 17' 41.27" N, 2 deg 15' 1.33" W
+
+Copyright is: OWoodflint
+
+- What is this users avatar of?
+Upon searching it, there is a twitter account. I guess the first answer is what that image is.
+
+There is this tweet
+'''''''
+From my house I can get free wifi ;D
+Bssid: mac-address - Go nuts!
+'''''''
+
+- What city is this person in?
+The hint says: https://www.wigle.net/
+So, searching the mac address on that website
+Hit the button filter
+
+Zoom out and find the purple circle
+Zoom back in onto that circle to get the location
+
+- Whats the SSID of the WAP he connected to?
+The SSID section was being rendered. Thus, refered to https://www.aldeid.com/wiki/TryHackMe-OhSINT to get it
+
+- What is his personal email address?
+When we were searching for this name, another result that popped up, was a github account.
+THere, we can also see the person announcing the email id.
+
+- What site did you find his email address on?
+Github it was
+
+- Where has he gone on holiday?
+Another result that popped up, was the blog. It has a loction.
+
+- What is this persons password?
+There is a whited out text on that blog itself. It might as well be the password.
+It can also be viewed by going into the view source
