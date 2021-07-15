@@ -1,0 +1,99 @@
+c4n y0u c4p7u23 7h3 f149?
+--> it is leet-speak
+
+01101100 01100101 01110100 01110011 00100000 01110100 01110010 01111001 00100000 01110011 01101111 01101101 01100101 00100000 01100010 01101001 01101110 01100001 01110010 01111001 00100000 01101111 01110101 01110100 00100001
+--> This is binary. Go to cyberchef and select from binary to get the answer
+
+MJQXGZJTGIQGS4ZAON2XAZLSEBRW63LNN5XCA2LOEBBVIRRHOM======
+--> All of the characters are capital letters or numbers. Thus, it would be base32. Go to cyberchef and select from base32
+
+RWFjaCBCYXNlNjQgZGlnaXQgcmVwcmVzZW50cyBleGFjdGx5IDYgYml0cyBvZiBkYXRhLg==
+--> It matches the pattern for Base64. (A-Za-z0-9+/=) To cyberchef 'from base64' we go
+
+68 65 78 61 64 65 63 69 6d 61 6c 20 6f 72 20 62 61 73 65 31 36 3f
+--> Those are hexadecimal numbers (0-9a-f). From Hex at CodeChef
+
+Ebgngr zr 13 cynprf!
+--> It is ROT13. Decrypt by using ROT13
+
+*@F DA:? >6 C:89E C@F?5 323J C:89E C@F?5 Wcf E:>6DX
+--> It is ROT47. Decrypt by using ROT47
+
+- . .-.. . -.-. --- -- -- ..- -. .. -.-. .- - .. --- -.
+. -. -.-. --- -.. .. -. --.
+--> it is morse code. Select Fromm Morse
+
+85 110 112 97 99 107 32 116 104 105 115 32 66 67 68
+--> it is BCD (Binary Coded Decimal). Select From Decimal to get the answer
+
+(Some really long string)
+--> So, the initial string is base64. The decoded base64 is then a morse code. This morse code gives a binary. This binary gives a rot47. Which inturn gives a decimal. This decimal on being decoded gives the final string. So, it goes like: "From Base64 > From Morse Code > From Binary > ROT47 > From Decimal"
+----------------------------------------------------------------------------------
+#Spectrograms
+A spectrogram is a visual representation of the spectrum of frequencies of a signal as it varies with time. When applied to an audio signal, spectrograms are sometimes called sonographs, voiceprints, or voicegrams. When the data is represented in a 3D plot they may be called waterfalls. 
+
+Download the file
+--> Hint says to use audacity. So, we use the software. Upon selecting the option: Spectogram, we get the answer
+----------------------------------------------------------------------------------
+#Steganography
+Steganography is the practice of concealing a file, message, image, or video within another file, message, image, or video.
+
+Decode the image to reveal the answer.
+--> 
+steghide info stegosteg.jpg
+
+    "stegosteg.jpg":
+    format: jpeg
+    capacity: 2.5 KB
+    Try to get information about embedded data ? (y/n) y
+    Enter passphrase:
+    embedded file "steganopayload2248.txt":
+        size: 13.0 Byte
+        encrypted: rijndael-128, cbc
+        compressed: yes
+
+Thus, it has a file hidden.
+
+steghide extract -sf stegosteg.jpg
+
+    Enter passphrase:
+    wrote extracted data to "steganopayload2248.txt".
+
+The answer is in that txt file
+-->
+----------------------------------------------------------------------------------
+#Security through obscurity
+Security through obscurity is the reliance in security engineering on the secrecy of the design or implementation as the main method of providing security for a system or component of a system.
+
+Download and get 'inside' the file. What is the first filename & extension?
+--> 
+file meme.jpg
+    meme.jpg: JPEG image data, JFIF standard 1.01, resolution (DPI), density 72x72, segment length 16, Exif Standard: [TIFF image data, big-endian, direntries=1, orientation=upper-left], baseline, precision 8, 492x471, frames 3
+
+steghide info meme.jpg
+    "meme.jpg":
+    format: jpeg
+    capacity: 3.4 KB
+    Try to get information about embedded data ? (y/n) y
+    Enter passphrase:
+    steghide: could not extract any data with that passphrase!
+
+binwalk meme.jpg
+
+    DECIMAL       HEXADECIMAL     DESCRIPTION
+    --------------------------------------------------------------------------------
+    0             0x0             JPEG image data, JFIF standard 1.01
+    30            0x1E            TIFF image data, big-endian, offset of first image directory: 8
+    74478         0x122EE         PNG image, 147 x 37, 8-bit/color RGBA, non-interlaced
+    74629         0x12385         Zlib compressed data, default compression
+
+I have no idea. So, I saw the hint. It says: Obscure Steg
+So, I used: strings meme.jpg
+Hoping, getting inside the file basically means, just opening the file outright
+The final 2 stings are the ones. The answers for these two questions.
+-->
+
+Get inside the archive and inspect the file carefully. Find the hidden text.
+--> 
+----------------------------------------------------------------------------------
+(For the final 2 questions / the last task i.e. task 4, if anyone has any better methods / intended mehtods, kindly let me know :)
