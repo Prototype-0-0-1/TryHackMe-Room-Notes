@@ -1,0 +1,80 @@
+https://devhints.io/bash
+Bash scripting cheatsheet
+
+The command “echo” is used to output text to the screen, the same way as “print” in python
+# can be used at the start of the code to comment out that line
+
+We have to add a $ onto front of our variable name in order to use it.
+
+name="THM"
+echo $name
+--> will give output as THM
+
+Debugging is a very important part of programming so we should get used to problem solving and fixing errors as early as possible. And bash has a few built in features that make our life simple.
+When running at the command line you can do:
+bash -x ./file.sh
+
+We will firstly  look at parameters specified using the command line when running the file. These come in many forms but often have the "$" prefix because a parameter is still a variable.
+
+script:
+    name=$1
+    echo $name
+
+./script Alex
+--> The output will be Alex
+
+So what if we wanted the 2nd argument? Well the process is very simple and we simply add a $2 instead of name=$1
+
+What if we didn't want to supply them like this however, and instead it would let us type in our name in a more interactive way, we can do this using read.
+File:
+    echo "Enter name"
+    read name
+    echo "name is $name"
+
+Gives option to type in the name
+
+$# can be used to get the number of arguments supplied to a script
+$0 can be used to get the filename of our current script(aka our first argument)
+
+Arrays are used to store multiple pieces of data in one variable, which can then be extracted by using an index. Most commonly notated as var[index_position].
+All indexes start at position 0
+
+We then wrap each item in brackets leaving a space between each item. transport=('car' 'train' 'bike' 'bus')
+We can then echo out all the elements in our array like this: echo "${transport[@]}"
+Where the "@" means all arguments, and the [] wrapped around it specifies its index.
+So what if we wanted to print out the item train.
+We would simply type: echo "${transport[1]}" because the train is at index position 1.
+The last thing we will cover is if we want to change an element, or delete it. If we wanted to remove an element we would use the unset utility.
+unset transport[1] --> This now removes the train item, if we wanted to we could echo it back out and see that it is indeed gone,
+Now lets set it to something else. We can do: transport[1]='trainride'
+If we echo the array then we get: car trainride bike bus
+So we successfully managed to swap out an element in our array!
+
+How to if:
+    if [ some condition ]
+    then
+        perform action-true
+    else
+        perform action-false
+    fi
+
+If statements always use a pair of brackets and in the case of the [] we need to leave a space on both sides of the text(the bash syntax). We also always need to end the if statement with fi
+
+The -eq is one way of doing this, you could also use “=”
+
+Operator    Description
+-eq         Checks if the value of two operands are equal or not; if yes, then the condition becomes true.
+-ne         Checks if the value of two operands are equal or not; if values are not equal, then the condition becomes true.
+-gt         Checks if the value of left operand is greater than the value of right operand; if yes, then the condition becomes true.
+-lt         Checks if the value of left operand is less than the value of right operand; if yes, then the condition becomes true.
+-ge         Checks if the value of left operand is greater than or equal to the value of right operand; if yes, then the condition becomes true.
+
+The -f checked if the file existed.
+The -w checked if the file was writable, without write permissions we wouldn't be able to output our text into the file.
+
+if [ -f "$filename ] --> gives true if file exists
+if [ -w "$filename ] --> gives true if file was writable
+
+If you want to further extend your knowledge of bash or coding in general I really suggest the following websites:
+https://www.codewars.com/
+https://www.hackerrank.com/
