@@ -1,0 +1,36 @@
+Used (used quite a lot):
+Burp Suite, OWASP ZAP
+nikto
+nmap
+ffuf
+john-the-ripper, hashcat
+binwalk, steghide, stegsolve, exiftool
+
+Learning (Used <30 times):
+dnSpy
+Metasploit
+Wireshark, NetworkMiner
+Nessus
+Social Engineer Toolkit
+Hydra
+dirbuster, gobuster
+
+
+Still To learn (not used yet):
+radare2, gdb, afl, ghidra
+sqlninja, sqlmap
+Maltego
+Aircrack-ng
+Autopsy
+Sn1per
+enum4linux
+BeEF
+
+Concepts known:
+
+
+Concepts to learn:
+
+
+Additional Resources:
+http://osintframework.com
