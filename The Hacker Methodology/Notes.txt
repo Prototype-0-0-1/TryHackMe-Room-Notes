@@ -1,0 +1,98 @@
+The Process that pentesters follow is summarized in the following steps:
+    Reconnaissance
+    Enumeration/Scanning
+    Gaining Access
+    Privilege Escalation
+    Covering Tracks
+    Reporting
+
+Reconnaissance is all about collecting information about your target.
+Generally speaking, reconnaissance usually involves no interaction with the target(s) or system(s). 
+Reconnaissance is a pretty simple concept, think about what tools we can use on the internet to gather information about people.
+
+There are some specialized tools that we can utilize but for this introduction, it is good to know the following tools. 
+    Google (specifically Google Dorking)
+    Wikipedia
+    PeopleFinder.com
+    who.is
+    sublist3r
+    hunter.io
+    builtwith.com
+    wappalyzer
+
+The second phase of the Hacker Methodology is Scanning and Enumeration.
+This is where more specialized tools start to come in to the arsenal. Tools like nmap, dirb, metasploit, exploit-db, Burp Suite and others are very useful to help us try to find vulnerabilities in a target. (Don't worry about them now, you can get into the nitty-gritty later)
+In the scanning and enumeration phase, the attacker is interacting with the target to determine its overall attack surface.
+The attack surface determines what the target might be vulnerable to in the Exploitation phase.
+
+Here is a quick sampling of other tools that you can learn on TryHackMe:
+    nmap
+    dirb (used to find commonly-named directories on a website - like how under https://www.tesla.com there is also https://www.tesla.com/about, https://www.tesla.com/model3, https://www.tesla.com/modely, and most importantly https://www.tesla.com/models WITH LUDICROUS MODE!! ♥) 
+    dirbuster (similar to dirb but with a cooler name, and with a user interface)
+    enum4linux (tool used specifically for Linux to find vulnerabilities)
+    metasploit (this tool is mostly used for exploitation, but it also has some built-in enumeration tools)
+    Burp Suite (this tool can be used to scan a website for subdirectories and to intercept network traffic)
+
+The exploitation phase can only be as good as the recon and enumeration phases before it, if you did not enumerate all vulnerabilities you may miss an opportunity, or if you did not look hard enough at the target - the exploit you have chosen may fail entirely!
+
+Tools:
+    metasploit
+    Burp Suite and SQLMap to exploit web applications
+    msfvenom (for building custom payloads)
+    BeEF (browser-based exploitation)
+
+A professional penetration tester never jumps into the exploitation phase without doing adequate reconnaissance and enumeration.
+
+After we have gained access to a victim machine via the exploitation phase, the next step is to escalate privileges to a higher user account. The following accounts are what we try to reach as a pentester:
+    In the Windows world, the target account is usually: Administrator or System.
+    In the Linux world, the target account is usually: root
+
+Privilege escalation can take many, many forms, some examples are:
+    Cracking password hashes found on the target
+    Finding a vulnerable service or version of a service which will allow you to escalate privilege THROUGH the service
+    Password spraying of previously discovered credentials (password re-use)
+    Using default credentials
+    Finding secret keys or SSH keys stored on a device which will allow pivoting to another machine
+    Running scripts or commands to enumerate system settings like 'ifconfig' to find network settings, or the command 'find / -perm
+    -4000 -type f 2>/dev/null' to see if the user has access to any commands they can run as root
+
+Most professional/ethical penetration testers never have the need to "cover their tracks". However, this is still a phase in the methodology.
+You should always have explicit permission from the system owner regarding when the test is happening, how its occurring, and the scope of targets in any penetration test.
+
+Since the rules of engagement for a penetration test should be agreed to before the test occurs, the penetration tester should stop IMMEDIATELY when they have achieved privilege escalation and report the finding to the client. 
+
+While ethical hackers rarely have a need to cover their tracks, you still must carefully track and notate all of the tasks that you performed as part of the penetration test to assist in fixing the vulnerabilities and recommending changes to the system owner.
+
+Ways to clear tracks:
+    Disable auditing.
+    Clearing logs.
+    Modifying logs, registry files.
+    Removing all files, folders created.
+
+A resource found: https://www.hackingloops.com/covering-tracks-over-network-hackers-guide/
+More resources be found upon searching.
+One can also spoof their self by using MAC Spoofing, or using proxies using proxychains, vpn, TOR, etc
+
+The final phase of the pentest methodology is the reporting phase.
+This is one of the most important phases where you will outline everything that you found. The reporting phase often includes the following things:
+    The Finding(s) or Vulnerabilities
+    The CRITICALITY of the Finding
+    A description or brief overview of how the finding was discovered
+    Remediation recommendations to resolve the finding
+
+The amount of reporting documentation varies widely by the type of engagement that the pentester is involved in. A findings report generally goes in three formats:
+    Vulnerability scan results (a simple listing of vulnerabilities)
+    Findings summary (list of the findings as outlined above)
+    Full formal report.
+
+As stated before there are many varying levels of documentation for a final written report.
+
+A findings summary is usually something like this:
+    Finding: SQL Injection in ID Parameter of Cats Page
+    Criticality: Critical
+    Description: Placing a payload of 1' OR '1'='1 into the ID parameter of the website allowed the viewing of all cat names in the cat Table of the database. Furthermore, a UNION SELECT SQL statement allowed the attacker to view all usernames and passwords stored in the Accounts table. 
+    Remediation Recommendation: Utilize a Prepared SQL statement to prevent SQL injection attacks
+
+A full formal report sample can be found here: https://github.com/hmaverickadams/TCM-Security-Sample-Pentest-Report.
+
+The CyberMentor has a lot of other good content such as example resumes, YouTube videos, and some really good Udemy courses (http://udemy.com/course/practical-ethical-hacking/) that will take you beyond the basics of this methodology outline.
