@@ -1,0 +1,138 @@
+What's the first thing you do when you are given the name of a business to check out? Fire up the ol' web browser, find the website and check it out, right?
+What if the website, or even the entire business, no longer exists?
+That does NOT mean it's the end of the road.
+
+Your job is to find as much information as you can about the website RepublicofKoffee.com.
+
+Note: Sometimes plugging a website into the search bar will send you directly to the site. Avoid this by putting the site in quote marks. Also note that this will only return results where the full domain name is written out on the website.
+
+Just because nothing shows up when you visit 'RepublicOfKoffee.com,' doesn't mean that someone doesn't own the domain.
+In fact, if there is any kind of landing page at all, even a spammy one, then you can be sure that someone does, in fact, own it.
+
+A 'whois' lookup is the most basic form of domain recon available. There are multiple websites that will do it for you as well.
+lookup.icann.org. This should tell you the current hosting company used and name servers. Looking at the raw data option will show further details.
+--> Putting RepublicOfKoffee.com gives a lot of info
+
+Task 2
+    Answer to Q1 available directly from the results
+    Registry Server URL shall also give us the info. Use any pretty print like https://jsonformatter.org/json-pretty-print to see it prettier and find your desired info. It will give Q2 answer
+    Q3 answer is given directly from the results
+    Q4 answer is Registrant > Handle
+    Q5 answer will be given in the same way as Q2's answer. Just look for address i.e. adr. Do look at both the URLs :) - (The answer is Panama. The URLs currently do not have the answer. Atleast I couldn't find it)
+
+
+Don't be discouraged when your initial searches on a website turn up empty.
+That's where Archive.org and the Internet Wayback Machine come into play.
+
+Task 3
+    Q1 answer can be recieved when we go the the oldest snapshot of the website
+    Q2: Go thorugh that Blog. You'll see the name of a place. The answer is: <name_of_place>, <name_of_country>
+    Q3: Search other blogs to find the the name of national park. We get a name. Search the name alongside the the word temple and it will give answer
+
+So far we've gathered some good info about the content that was on our target website, even though it hasn't been live for several years.
+ViewDNS.info provides a convenient UI for looking up registration information on a target website. Using this information, it may be possible to draw certain conclusions that are not clearly spelled out, such as whether the website is hosted on a shared or dedicated IP address. The answer to this question can imply things about the website's budget as well as traffic.
+
+Task 4
+Q1: Search RepublicOfKoffee.com in IP History
+Q2: Now we need to find out hosting service our target uses. Using the reverse lookup for this purpose. There is a long list of domain names associated with the IP we found earlier. This means our target website owner is using a shared hosting service as it costs a lot less than the dedicated hosting service
+Q3: Count the number of results found in Q1
+
+heat[dot]net --> heat.net
+is a target
+
+Task 5
+Q1: lookup.icann
+Q2: IP History
+Q3: Same explanation as Task4 Q2
+Q4: Time travel time, wayback machine
+Q5: This goes wayback
+Q6: On the page for Q5, you can also see the answer for this. It is Sega Softwares i.e. SegaSoft in short
+Q7: Wayback time travel
+
+Isn't it kind of interesting how the website disappeared for a period of time and came back?
+
+Often, clues about a website and its creator/owner may be unintentionally left behind in the source code of the website. Pretty much every web browser will have a method of doing this. It is well worth taking the time to become acquainted with how this works in your browser of choice. For Chrome on MacOS, you'll go to the top menu bar and choose View > Developer > View Source.
+Note: This also works on sites you visit within Archive.org's Wayback Machine.
+
+As easy as that may be to read, if it was buried inside a gigantic page full of code it could still be easy to miss. That's where ctrl-F comes in.
+
+These following questions refer to heat.net/36/need-to-hire-a-commercial-heating-contractor/
+--> target acquired
+
+Task 6
+Q1: Count the links. [Links linkning to different pages of heat.net sub-pages]
+Q2: Count the links. [Links linking to pages outside of this domain's pages]
+Q3: The link which was for Q2, is the answer here (removethe http & the www part)
+Q4: View Source. Ctrl + F -> analytics 
+Q5: https://www.nerdydata.com/ -> technology explorer -> Paste the Answer of Q4 and search
+Q6: We can look at the contents of href to find such links.
+
+Experienced OSINT researchers will tell you that chasing rabbit holes all day and night without being able to make some solid connections is not OSINT.
+OSINT refers to the patterns that start to emerge as we connect the dots in the analysis of the data. 
+Congrats! you found that our target, heat[.]net, links to an interesting external site. A question remains though: Why???
+There is no affiliate code in the link, so there is no obvious financial connection between the two. Maybe there's another kind of connection.
+This is your final exam, and there is exactly one question.
+
+Task 7
+    - Use the tools in Task 4 to confirm the link between the two sites. Try hard to figure it out without the hint.
+    -->
+
+    IP history results for purchase.org.
+    ==============
+
+    IP Address	Location	IP Address Owner	Last seen on this IP
+    172.67.197.177	United States	Cloudflare, Inc.	2021-07-21
+    104.21.92.201	United States	Cloudflare, Inc.	2021-07-21
+    104.27.185.115	United States	Cloudflare, Inc.	2021-01-14
+    104.27.184.115	United States	Cloudflare, Inc.	2021-01-14
+    206.196.110.108	St Louis - United States	Rose Web Services LLC	2017-11-03
+    67.43.1.187	Lansing - United States	Liquid Web	2013-04-19
+    72.52.193.127	Lansing - United States	Liquid Web	2012-11-16
+
+    IP history results for heat.net.
+    ==============
+
+    IP Address	Location	IP Address Owner	Last seen on this IP
+    208.117.87.195	Reston - United States	Atlantic.Net - Ashburn	2021-07-21
+    74.116.2.147	United States	Express Web Systems	2019-06-19
+    72.52.192.240	Lansing - United States	Liquid Web	2011-12-19
+
+    They both had a same owner
+    -->
+    -- Liquid Web, L.L.C
+
+Congratulations on completing the challenge! In fact, it is highly probable that both of these sites are owned and operated by the same entity.
+
+Let's unpack this.
+Although there are loads of advertisements on our target website, that is probably a tiny percentage of the money this site makes.
+
+It would require further investigation to confirm this but it's a good bet that the creators of these two sites make most of their money by functioning as what's called a private blog network (PBN). PBNs exist for one purpose: to convince the search engine algorithms that another site should rank higher in the search engine results.
+-- SEO manipulation i see
+
+Modern search engines work by mapping the internet by its links. This gets extremely complicated very quickly, but as a generalization they work on a few assumptions:
+    1. How well a site answers users' questions on a topic can be evaluated by the incoming, outgoing, and internal links it has. The presence of a lot of links to website A from websites B, C, D, and E is taken as a sign that website A is authoritative on the topic. Outgoing links are treated a little differently. Too many outgoing links can hurt a site's ranking, but search engines also assume that a website with too few outgoing links is probably not answering users' questions very well either.
+    2. How authoritative the websites are that are sending and receiving links. If your site gets plugged in a New York Times article, that will earn far more ‘Google juice’ than a plug on CedarHillsHomeownersAssociation.xyz.
+    3. Relevance of the incoming links to a site. A link to a site from top tier websites like the New York Times is always going to be a very good thing. Almost as good, though, would be a link from a reputable website dedicated to the same topic as yours. The relevance of the language used in the hyperlink itself is also an important part of this consideration.
+
+Let's say we are creating a new website. In order to get some SEO juice flowing to it, we'll need to get another website to start linking to our site as fast as possible. A common (white hat) method of doing this would be volunteering to write free blog articles on other websites in exchange for links back to your site.
+As you can imagine, this takes a lot of time. It is a long term endeavor that could take six months or so to see results, depending on how much competition there is for the keywords you are targeting.
+
+Thinking like a hacker here, what's a good way to give your new website (called 'money site') a faster boost in the search engine rankings? Highlight the below section once you have an idea in your head.
+    By setting up a separate website that is completely under your control and exists for the sole purpose of telling search engines that your main site should rank higher in searches than it rightfully deserves.
+
+That's right, heat[.]net, in its current form is probably not designed for human eyes at all. It is designed primarily to trick the search engines into placing purchase[.]org higher in the search results than it would have otherwise.
+Purchase[.]org appears to be a drop shipping e-commerce site, which probably earns its owner substantially more money than heat[.]net. It needs that sweet sweet SEO juice to push it up the search engine results pages (AKA SERPs) though.
+
+Is all of this ethical? Good question. Google, for one, would clearly define this practice as black hat and is constantly trying to improve its algorithms to penalize sites that do this kind of thing. As of this writing, though, it is not illegal.
+
+Is the site a scam? It is worth considering how much time and effort that goes into setting up a PBN. A PBN ideally has a minimum of 50 pages of unique, natural-sounding and on-topic articles. That's a lot of time and effort that went into getting a fast, short-term bump in the rankings, rather than into other aspects of the business, or even something as simple and affordable as pay-per-click marketing.
+
+On the other hand, you might be surprised to learn just how common it is for websites to hire SEO agencies. Some of these agencies, whether they admit it or not, have hundreds of PBNs and a staff of writers (usually offshore) pumping out content designed solely for the consumption of the search algorithms.
+
+
+A little web OSINT knowledge can go a long way in online investigations. A few examples of where it comes into play include any kind of business OSINT, online scams, or even political journalism. If you would like to see a prime example of this kind of research being put into practice, I highly recommend checking out NixIntel's expose linking antifa.com to Russia, which is an amazing case study. https://nixintel.info/osint/website-osint-whats-the-link-between-antifa-com-and-russia/
+
+https://osintcurio.us/
+https://inteltechniques.com/podcast.html
+
+https://www.theosintion.com/
