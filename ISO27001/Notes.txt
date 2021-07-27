@@ -1,0 +1,184 @@
+ISO (the International Organization for Standardization) is a worldwide federation of national standards bodies (ISO member bodies)
+An ISMS (Information Security Management System) consists of the policies, procedures, guidelines, and associated resources and activities, collectively managed by an organization, in the pursuit of protecting its information assets.
+An ISMS is a systematic approach for establishing, implementing, operating, monitoring, reviewing, maintaining and improving an organization’s information security to achieve business objectives. 
+It is based on a risk assessment and the organization’s risk acceptance levels designed to effectively treat and manage risks.
+
+OF THE ISO2700 STANDARDS ONLY 27001 CAN BE AUDITED
+
+- Which is the objective from an ISMS?
+--> protecting its information assets
+
+- Which ISO standard talk about supply chain security?
+--> Just look it up on a search engine
+
+- On what type of assessment and acceptance level (appetite) is ISO 27001 based?
+--> Risks
+
+Audits are part of the work of many organizations (if not most) if you have worked in an office perhaps you have already participated in an audit.
+The audits of ISO standards are made with a special standard called ISO 19011 in which it talks about how to carry it out and different language related to the world of audits.
+
+Exist 3 types of audits
+First-Party Audits
+    First-party audits, or internal audits, are typically performed inside a company to measure the strengths and weaknesses relative to its internal business objectives. This ISO audit is basically a conformity assessment to check for compliance gaps and prepare an organization for an external ISO certification audit, i.e., a third-party audit.
+
+Second-Party Audits
+    A second-party audit, or external audit, is usually performed at the request of a customer (or a company contracted to act on the customer’s behalf) on a supplier of products or services. 
+
+Third-Party Audits
+    The third-party audit is the certification audit. An organization typically undertakes a third-party audit when it wants to achieve an ISO certification. During the certification audit, a certification body auditor assesses whether an enterprise complies with the appropriate ISO standard.
+At the moment to plan an audit the team needs to determine an objective; this can be different from each organization. Some examples can be getting a stronger ISMS, determining risks and opportunities, get trust from the vendors or comply the legal requests.
+
+Also exist two kind of audits methods
+Onsite audit
+    This is face to face, the auditor goes to the physical site and check all the documentation
+
+Remote audit
+    This is from the distance, using the internet as a tool to get the audit objectives. This one can apply to first and second parties’ audits.
+
+Since the pandemic remote audits are more common, so now you can check about official documentation about how to do a remote audit.
+You can check the docs here: https://www.iaf.nu/articles/Mandatory_Documents_/38
+So... Maybe you were thinking about "why are you teaching me 19011? This was not a 27001 room?"
+Well, yes you are right, this is an ISO 27001 room, but maybe you don't ever will have 27001 audits, but this normative can apply to any kind of ISO family standards.
+
+- What kind of audits cant qualify to be remote audit?
+--> Third-Party Audits
+
+- Which organization release a guide for remote audits to help organizations in the pandemic?
+--> IAF forum (search it, and you answer)
+
+- If you get the ISO 27001 cert for internal auditor, which types of audits are you able to do?
+--> We wouldn't be able to do Third Part audits. (You know, since INTERNAL AUDITOR)
+
+Let´s talk about ISO27001 again, this time I am going to introduce you to different thing about an ISMS should have considerate when is going into development.
+
+People/Employees
+    It's important to share and sensitize everyone in the organization, in that way they can commit their obligations and responsibilities to the ISMS.
+    Even directors and administrators should be committed to the ISMS.
+    If the directors don't have enough time they can delegate his responsibility to someone who could be committed to the ISMS.
+
+Technology
+    This includes the cipher controls, apps developer, and all the other technology about the organization's need to complete all their process in the normal job day.
+    Maybe you could think, well my organization doesn't make any development, well maybe that's correct, but maybe the organization hires a third service for that. well, that service should be documented and be competent about security.
+
+Legislation
+    Need to consider any law that can affect your process, this could be like intellectual property laws (this one is different for each country).
+
+Organization
+    Here we are talking about all the politics, processes, plans, incident responses, vendors, in other words... A lot of documentation.
+
+- CETS No 185 could be a example of what?...
+--> Outlines a criminal policy for protecting against cyber crime though legislation and national cooperation: https://gssd.mit.edu/search-gssd/site/convention-cybercrime-cets-no-185-59951-thu-03-07-2013-1323 --> legislation
+
+- What mathematical funcition can help to get integrity?
+--> Hashing can help to get integrity
+
+4.- Context of the organization
+Here we can talk about technology, finance, and topics sociocultural. and the ISMS scope and improvement.
+
+Internal
+o Employees
+o Managers
+o Owners
+o Contractors
+
+External
+o Suppliers
+o Society
+o Government
+o Creditors
+o Clients
+o Citizens
+o Distributors
+o Shareholders
+o Investors
+o Insurers
+o Regulators
+
+5.- Leadership
+5.1 Top management must demonstrate their commitment to the management system.
+5.2 Creation of the information security plan.
+5.3 Assign roles and responsabilities that are capable of making decisions and that can makeing decisions and that can make changes to the process.
+
+6.- Planning
+This is one of the hardest parts, thats cause you need to consider another parts of the ISO 27001 (like 4.1 & 4.2)
+This part is about to reduce incidents and risks. and how to act when an incident occurs.
+Need to think about how you goint to qualify your plan, it could be quantitative estimate (if you can give it a number) or qualitative estimation ( by eliminatories). 
+
+7.- Support
+7.1 Resources
+    Take into account the current resources of the organization, people, team capacity, organizational knowledge and restrictions that you may run into such as budgets or time.
+
+7.2 Competence
+    Here again, you have to think based on risks (I always say that they pay me for being paranoid) taking into account their responsibilities and authorities that have been put into the processes.
+
+7.3 Awareness
+    Make sure that people are aware of their work in the ISMS as well as their sanctions in case of not fulfilling their responsibilities.
+
+7.4
+    When? That? To who? By what means? What should it say? These are all issues that must be taken into account when establishing our needs
+
+7.5 Documented Information
+    The norm asks us to have all the documentation clear and especially within reach, it is not worth having our documentation lost and unclassified.
+
+8.- Operation
+8.1 Operational planning and control
+    Keep any documentation that you consider pertinent to demonstrate your planned processes, as well as to put a change control and justify the change made.
+    Do not think that because it is an external process or a subcontracting there is no need to document it, this must also be done to find out how to control if it impacts our ISMS.
+
+8.2 Information security risk assessment
+    This document should include your calculation of the risk level, compare this calculation with acceptance criteria (how acceptable is my risk, example how long can I operate without electricity, before an irrecoverable loss for the organization), who participate in this assessment ( here they look for people who really know the organization) what is the current perception about what is important talking about threats.
+
+8.3 Information security risk treatment
+    To implement our treatment plan and document everything we can rely on the implementation points not only of 27001, but also of 27002 (Code of good practice for information security controls)
+
+9 Performance evaluation
+9.1 Monitoring measurement, analysis and evaluation.
+    Here he talks about everything involved for our evaluation. What will be monitored, how it will be monitored, how it will be evaluated (so that this evaluation is valid and reproducible) when it will be evaluated, who will evaluate, when the results are analyzed, and who analyzes and evaluates the results.
+
+9.2 Internal audit
+    As I had already mentioned, many standards ask us to carry out internal audits, and clearly ISO 27001 is no exception.
+    These internal audits are carried out to know the performance and effectiveness of our system in an impartial manner, as this not only ensures the effectiveness of the system, but also that it is really being maintained.
+    This also serves to obtain feedback (and even advice from the auditor) and serves as an extra guarantee that the system complies with ISO 27001.
+
+9.3 Management review
+    This review must be planned every so often, say every week, month, semester, etc. The review can also be done at various levels so that senior management is also aware of this data.
+    For example, every week it will be reviewed by an immediate boss, every month by an ISMS manager, every six months by a member of senior management, and every year by the owner of the company.
+
+10 Improvement
+10.1 Nonconformity and corrective action
+    Faced with a non-conformity, you must react, evaluate the necessary actions, implement measures, see if a change to our ISMS is necessary, and once again document these actions.
+
+10.2 Continual improvement
+    This section serves to guarantee the continuous improvement of the system, to see that the system is working and that work is being done to correct the findings and refine them if necessary.
+
+Wait...
+Why do I start since the number 4?
+Well, this is cause points 1,2 & 3 talks about the scope, references, and terms, so that's nothing to do on our part.
+
+- How many days the organization have to plan a respond to a minor non conformity?
+-- Google as it is to get the answer
+
+A.5 Clause
+A.5.1 Category
+A5.1.1 Control
+This consist in 18 domains/clause (when the first 4 are nonauditable)
+
+Take this one like the CIS Controls ( If you like a blue team and IMSI you should read about this one too)
+These controls have different topics and objectives, this one could be like backups, information classification, access controls, and such more topics about infosec.
+
+The ISO27001 could be something hard to pay for a lot of organizations, don't worry about it, there's no necessary to look for this cert if you don't need it, but what you could do is take "what you need" some controls are really cheap or are just configurations.
+Now is your turn go there and implement defense!
+
+- If i talk about "A.9.2.4" Managment of secret authentication information of users" i talking about an...
+--> control
+
+- What is the name of the "Operations security" i talking about an...
+--> clause
+
+- How many CIS controls exist?
+--> Search.
+
+- What is the name of the control 6.2.1?
+--> Search it up alongside ISO27001. Answer shall be given
+
+
