@@ -14,6 +14,7 @@ Nessus
 Social Engineer Toolkit
 Hydra
 dirbuster, gobuster
+HiddenEye
 
 
 Still To learn (not used yet):
@@ -25,11 +26,14 @@ Autopsy
 Sn1per
 enum4linux
 BeEF
+Splunk
 
 Concepts known:
 
 
 Concepts to learn:
+MITRE
+Yara
 
 
 Additional Resources:
