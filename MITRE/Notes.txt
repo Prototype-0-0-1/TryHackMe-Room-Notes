@@ -111,4 +111,113 @@ To summarize, CAR is a great place for finding analytics that takes us further t
 --> https://car.mitre.org/analytics/CAR-2013-05-004/
 -- Unit Tests
 
+MITRE | SHIELD
+https://shield.mitre.org/
 
+Shield is an active defense knowledge base MITRE is developing to capture and organize what we are learning about active defense and adversary engagement. Derived from over 10 years of adversary engagement experience, it spans the range from high level, CISO ready considerations of opportunities and objectives, to practitioner friendly discussions of the TTPs available to defenders
+
+The U.S. Department of Defense defines active defense as “The employment of limited offensive action and counterattacks to deny a contested area or position to the enemy.”
+
+Shield Active Defense is similar to the ATT&CK® Matrix, but the tactics and techniques provided to us enable us to trap and/or engage (with) an adversary active within the network. For example, we can plant decoy credentials on a resource and monitor if/when the account's credentials are used elsewhere within the network. By doing this, we are alerted to the adversary's presence and provides the opportunity to learn about their tools and tactics. The information that is gathered can be classified as threat intelligence. 
+
+On the website, Across the Shield (Active Defense Matrix) top are the tactics, similar to the ATT&CK® Matrix. 
+Each column will list the techniques associated with each tactic (again, as the ATT&CK® Matrix). By clicking on any column headers, we will be redirected to a page providing more information.
+
+Example:
+    Let's click on Collect. At this point, we should already be familiar with how MITRE displays the information to us. Here we see a brief definition of tactic, Collect, and associated ID along with the list of techniques, each with a brief description.
+
+    Click on DTE0012 - Decoy Credentials.
+
+    Aside from the summary, we are provided with Opportunities, Use Cases, and Procedures to perform this technique. Also, note that this technique maps to other Shield tactics (yes, I will repeat it - this is also the case with the ATT&CK® Matrix). Finally, at the bottom is listed the ATT&CK® Techniques associated with this Shield Technique.
+
+Exploring the navigation options across the top links are provided to us to view the Shield Tactics and Techniques as individual pages. This view is good if you want a summary of each at a glance. 
+Under ATT&CK® Mapping Overview (in our case) for Initial Access [TA0001] https://shield.mitre.org/attack_mapping/TA0001/ , the table lists the ATT&CK® Techniques and hints (opportunities) on how to use the suggestive Active Defense Technique in our environment. 
+
+- Which Shield tactic has the most techniques?
+--> https://shield.mitre.org/matrix/
+-- Detect
+
+- Is the technique 'Decoy Credentials' listed under the tactic from question #1? (Yay/Nay)
+--> https://shield.mitre.org/tactics/DTA0004/
+-- Yay
+
+- Explore DTE0011, what is the ID for the use case where a defender can plant artifacts on a system to make it look like a virtual machine to the adversary?
+--> https://shield.mitre.org/techniques/DTE0011/
+-- DUC0234
+
+- Based on the above use case, what is its ATT&CK® Technique mapping?
+--> https://shield.mitre.org/attack_mapping/mapping_all.html
+-- T1497
+
+- Continuing from the previous question, look at the information for this ATT&CK® Technique, what 2 programs are listed that adversary's will check for?
+--> https://attack.mitre.org/techniques/T1497/
+-- Sysinternals and Wireshark
+
+https://mitre-engenuity.org/
+If these tools provided to us by MITRE are not enough, under MITRE ENGENUITY, we have CTID, the Adversary Emulation Library, and ATT&CK® Emulation Plans.
+
+CITD
+MITRE formed an organization named The Center of Threat-Informed Defense (CTID) https://mitre-engenuity.org/ctid/. This organization consists of various companies and vendors from around the globe. Their objective is to conduct research on cyber threats and their TTPs and share this research to improve cyber defense for all. 
+
+Some of the companies and vendors who are participants of CTID:
+    AttackIQ
+    Verizon
+    Microsoft
+    Red Canary
+    Splunk
+
+Per the website, "Our goal is to change the game on adversaries by relentlessly improving our collective ability to prevent, detect, and respond to cyber attacks."
+
+Adversary Emulation Library & ATT&CK® Emulations Plans
+
+The Adversary Emulation Library https://medium.com/mitre-engenuity/introducing-the-all-new-adversary-emulation-plan-library-234b1d543f6b is a public library making adversary emulation plans a free resource for blue/red teamers. The library and the emulations are a contribution from CTID. There are 3 ATT&CK® Emulation Plans https://mitre-engenuity.org/attackevaluations/ currently available: APT3 https://attack.mitre.org/resources/adversary-emulation-plans/ , APT29 https://github.com/center-for-threat-informed-defense/adversary_emulation_library/tree/master/apt29 , and FIN6 https://github.com/center-for-threat-informed-defense/adversary_emulation_library/tree/master/fin6 . The next ATT&CK® Emulation in the pipeline is FIN7. The emulation plans are a step-by-step guide on how to mimic the specific threat group. If any of the C-Suite were to ask, "how would we fare if APT29 hits us?" This can easily be answered by referring to the results of the execution of the emulation plan. 
+
+- How many phases does APT3 Emulation Plan consists of?
+-- 3
+
+- Under Persistence, what binary was replaced with cmd.exe?
+--> https://attack.mitre.org/docs/APT3_Adversary_Emulation_Plan.pdf
+-- sethc.exe
+
+- Examining APT29, what 2 tools were used to execute the first scenario?
+--> https://github.com/center-for-threat-informed-defense/adversary_emulation_library/tree/master/apt29
+-- Pupy and Metasploit
+
+- What tool was used to execute the second scenario?
+--> https://github.com/center-for-threat-informed-defense/adversary_emulation_library/blob/master/apt29/Emulation_Plan/Scenario_2/Infrastructure.md
+-- PoshC2
+
+- Where can you find step-by-step instructions to execute both scenarios?
+-- ATT&CK Arsenal
+
+Threat Intelligence (TI) or Cyber Threat Intelligence (CTI) is the information, or TTPs, attributed to the adversary. By using threat intelligence, as defenders, we can make better decisions regarding the defensive strategy. Large corporations might have an in-house team whose primary objective is to gather threat intelligence for other teams within the organization, aside from using threat intel already readily available. Some of this threat intel can be open source or through a subscription with a vendor, such as CrowdStrike https://www.crowdstrike.com/ . In contrast, many defenders wear multiple hats (roles) within some organizations, and they need to take time from their other tasks to focus on threat intelligence. To cater to the latter, we'll work on a scenario of using ATT&CK® for threat intelligence. The goal of threat intelligence is to make the information actionable. 
+
+Scenario: You are a security analyst who works in the aviation sector. Your organization is moving their infrastructure to the cloud. Your goal is to use the ATT&CK® Matrix to gather threat intelligence on APT groups who might target this particular sector and use techniques targeting your areas of concern. You are checking to see if there are any gaps in coverage. After selecting a group, look over the selected group's information and their tactics, techniques, etc. 
+
+- What is a group that targets your sector who has been in operation since at least 2013?
+--> Search for aviation. 2 candidates. Also look for 2013.
+-- APT33
+
+- Does this group use Stuxnet? (Yay/Nay)
+--> https://attack.mitre.org/groups/G0064/
+-- Nay
+
+- As your organization is migrating to the cloud, is there anything attributed to this APT group that you should focus on? If so, what is it?
+--> Search for cloud on that page
+-- 	Cloud Accounts
+
+- What tool is associated with this technique?
+--> https://attack.mitre.org/techniques/T1078/004/
+-- Ruler
+
+- Per the detection tip, what should you be detecting?
+--> https://attack.mitre.org/techniques/T1078/004/
+-- abnormal or malicious behavior
+
+- What platforms does this affect?
+--> https://attack.mitre.org/techniques/T1078/004/
+-- Azure AD, Google Workspace, IaaS, Office 365, SaaS
+
+In this room, we explored tools/resources that MITRE has provided to the security community. The room's goal was to expose you to these resources and give you a foundational knowledge of their uses. Many vendors of security products and security teams across the globe consider these contributions from MITRE invaluable in the day-to-day efforts to thwart evil. The more information we have as defenders, the better we are equipped to fight back. Some of you might be looking to transition to become a SOC analyst, detection engineer, cyber threat analyst, etc. these tools/resources are a must to know.
+
+As mentioned before, though, this is not only for defenders. As red teamers, these tools/resources are useful as well. Your objective is to mimic the adversary and attempt to bypass all the controls in place within the environment. With these resources, as the red teamer, you can effectively mimic a true adversary and communicate your findings in a common language that both sides can understand. In a nutshell, this is known as purple teaming.
