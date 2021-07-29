@@ -15,13 +15,12 @@ Social Engineer Toolkit
 Hydra
 dirbuster, gobuster
 HiddenEye
-
+Aircrack-ng
 
 Still To learn (not used yet):
 radare2, gdb, afl, ghidra
 sqlninja, sqlmap
 Maltego
-Aircrack-ng
 Autopsy
 Sn1per
 enum4linux
