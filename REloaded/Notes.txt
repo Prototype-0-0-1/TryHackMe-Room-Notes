@@ -1,0 +1,46 @@
+Tools used by me:
+-->
+    strings
+    ida freeware
+    ghidra
+    iaito
+-->
+
+- Level 0
+--> 
+    Just run strings on the file. And the flag will be found. 
+--> 
+
+- Level 1
+--> 
+    A string "Thats ur lucky number !!!" is foound. See it's references / X-refs.
+> To Ghidra for seaching the string and it's references
+    A hex value will be found as the if condition to be compared. Converet that hex value to decimal. And boom flag.
+> Can also be done on IDA since you will be able to find the Compare statement
+--> 
+
+- Level 2
+--> 
+    "Get Ready For L4" is a string that was found. Finding that string on ghidra
+    A function is found that does its thing. In the function, the flag will also be printed, alongside the above string.
+    Thus, we have to change the code such that, the condition redirects to our desired condition.
+    Thus, if condition are often converted to assembly as Jump statements. Thus, if we change the jump statement to out desired loction, we get the answer.
+> To save the changes into a new file: https://github.com/schlafwandler/ghidra_SavePatch
+> Thanks to https://gist.github.com/isira-adithya/8ab4a2d6374708418cef7c2b10b8de56 for the SavePatch direction
+--> 
+
+- Level 3
+--> 
+    Now, "Rooted !!!" is a string that was unique. Finding the same on ghidra, we see our input is compared to a variable.
+    That variable would contain our flag. So, I used iaito for this.
+    Emulate the function and kept a breakpoint before the strcmp runs. We will be able to see parts of the actual flag as the loop keeps running.
+    And you will be able to see the flag.
+--> 
+
+- Level 4
+--> 
+    Run the code and it directly gives us something that is totally not understandable.
+    But, now we know that there would be only 1 printf statement in the code. Thus, finding that will lead us to the function under question.
+    I performed this on iaito as well. Once the pre-processing of iaito has been done, you would actully be able to see the flag being loaded.
+    Just that the flag is being loaded in parts of a few characters in each insturction.
+--> 
